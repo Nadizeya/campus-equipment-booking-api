@@ -80,8 +80,6 @@ This log records AI assistance used in this project. Entries dated **2026-10-06 
 
 **Student verification:** Pending. Manual tests should use IDs from newly created bookings, as automated test bookings are deleted during cleanup.
 
-## Future entry template
-
 ## Entry 9 — GitHub and Cloudflare publication
 
 Date: 2026-10-06 (Asia/Bangkok). The user requested publishing source to GitHub and deploying the API, and explicitly chose a new public repository. The user completed GitHub CLI and Wrangler OAuth authorization.

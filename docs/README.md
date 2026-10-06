@@ -10,8 +10,6 @@ TypeScript + Hono + Cloudflare D1. The API runs locally with Wrangler and is dep
 
 The base URL has no standalone GET route; use `/equipment` or `/bookings`. All 39 HTTP cases and nine cURL cases passed on the deployed API; see [deployment evidence](TEST_EVIDENCE.md#deployed-api-http-cases).
 
-## Run locally
-
 ## Cloudflare deployment
 
 The Worker uses the `DB` binding to the remote `campus-booking` D1 database. The database ID in `wrangler.jsonc` identifies this submission's database; it is not a secret. Credentials remain in the local CLI credential stores and are not included in Git.
