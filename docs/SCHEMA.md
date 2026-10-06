@@ -1,7 +1,7 @@
 # Data Design: Campus Equipment Booking
 
 **Status:** Implemented by `migrations/0001_initial.sql` and verified in local D1 during Phase 2.  
-**Related documents:** [API contract](API_CONTRACT.md) and [PRD](PRD.md).
+**Related documents:** [API contract](API_CONTRACT.md) and [project instructions](README.md).
 
 ## Runtime decision
 
@@ -81,7 +81,7 @@ A separate application-level check followed by a write leaves a race where two r
 
 Proposed approach: SQLite BEFORE INSERT and BEFORE UPDATE triggers reject writes when a same-equipment overlap exists; the update check excludes `NEW.id`. Use a recognizable internal conflict marker and translate only that known failure to HTTP `409`. Other database failures must not be misreported as booking conflicts.
 
-The migration was applied successfully with Wrangler 4.147.0 against local D1. Insert and update conflicts returned `409`; simultaneous conflicting creates returned one `201` and one `409`. See [HTTP evidence](TEST_EVIDENCE.md). Foreign keys are defined in the migration; direct database foreign-key rejection still needs a dedicated review check. No transaction API is assumed.
+The migration was applied successfully with Wrangler 4.147.0 against local D1. Insert and update conflicts returned `409`; simultaneous conflicting creates returned one `201` and one `409`, with one saved reservation. See [HTTP evidence](TEST_EVIDENCE.md). Phase 3 isolated D1 tests verified direct foreign-key, chronological CHECK, and integer CHECK rejection; see [database evidence](TEST_EVIDENCE.md#database-constraint-cases). No transaction API is assumed.
 
 ## Planned implementation artifacts
 

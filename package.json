@@ -9,11 +9,20 @@
     "db:migrate": "wrangler d1 migrations apply campus-booking --local",
     "db:seed": "wrangler d1 execute campus-booking --local --file seeds/equipment.sql",
     "db:setup": "npm run db:migrate && npm run db:seed",
+    "db:migrate:remote": "wrangler d1 migrations apply campus-booking --remote",
+    "db:seed:remote": "wrangler d1 execute campus-booking --remote --file seeds/equipment.sql",
+    "deploy": "wrangler deploy",
     "test:http": "node scripts/test-http.mjs",
+    "test:curl": "node scripts/test-curl.mjs",
+    "test:http:remote": "node scripts/test-http.mjs --remote",
+    "test:curl:remote": "node scripts/test-curl.mjs --remote",
+    "test:errors": "node scripts/test-errors.mjs",
+    "test:db": "node scripts/test-db.mjs",
     "snapshot": "node scripts/snapshot.mjs"
   },
   "dependencies": { "hono": "4.13.13" },
   "devDependencies": {
+    "esbuild": "0.28.1",
     "wrangler": "4.147.0",
     "typescript": "~5.9.3",
     "@cloudflare/workers-types": "5.20261006.1"

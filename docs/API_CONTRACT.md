@@ -1,8 +1,10 @@
 # API Contract: Campus Equipment Booking
 
 **Status:** Implemented in Phase 2; see [HTTP test evidence](TEST_EVIDENCE.md).  
-**Sources:** [Exam brief](exam_brief_en.md), [rubric](rubric_en.md), and [PRD](PRD.md).  
+**Sources:** Professor's exam brief and rubric; see [assignment sources](README.md#assignment-sources).
 **Verified local base URL:** `http://127.0.0.1:8787/api`.
+
+**Verified public base URL:** `https://campus-equipment-booking-api.svg-asset.workers.dev/api`.
 
 **Chosen stack:** TypeScript + Hono + local Cloudflare D1, confirmed by the user on 2026-10-06; Wrangler for local development. No instructor starter has been supplied.
 
@@ -129,4 +131,4 @@ These example messages guide implementation; tests should assert status, envelop
 
 ## Verification plan
 
-The Phase 2 runner exercised 34 HTTP cases with actual results in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). A separate restart check verified persistence. Continue using the [PRD acceptance matrix](PRD.md#6-acceptance-tests) during subsequent review.
+The current runner passes 39 HTTP cases; nine professor-guide cURL cases and six database/error checks are also recorded in [TEST_EVIDENCE.md](TEST_EVIDENCE.md). The preserved Phase 2 commit contains restart persistence evidence. Follow the [submission checklist](README.md#submission-checklist) for remaining personal and final verification.
