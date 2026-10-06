@@ -1,0 +1,21 @@
+{
+  "name": "campus-equipment-booking-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --ip 127.0.0.1 --port 8787",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "wrangler d1 migrations apply campus-booking --local",
+    "db:seed": "wrangler d1 execute campus-booking --local --file seeds/equipment.sql",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "test:http": "node scripts/test-http.mjs",
+    "snapshot": "node scripts/snapshot.mjs"
+  },
+  "dependencies": { "hono": "4.13.13" },
+  "devDependencies": {
+    "wrangler": "4.147.0",
+    "typescript": "~5.9.3",
+    "@cloudflare/workers-types": "5.20261006.1"
+  }
+}
